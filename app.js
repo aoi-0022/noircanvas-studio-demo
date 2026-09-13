@@ -126,23 +126,8 @@ document.querySelectorAll('.segmented button').forEach((button) => {
   });
 });
 
-const exportChecks = [...document.querySelectorAll('.export-check')];
-const exportMessage = document.getElementById('exportMessage');
-function updateExportCount() {
-  const remaining = exportChecks.filter((check) => !check.checked).length;
-  exportMessage.textContent = remaining === 0 ? '販売用ZIPを作成できます。' : `${remaining}項目が未確認です。`;
-}
-exportChecks.forEach((check) => check.addEventListener('change', updateExportCount));
-
 document.getElementById('validateExport').addEventListener('click', () => {
-  const remaining = exportChecks.filter((check) => !check.checked).length;
   const state = document.getElementById('exportState');
-  if (remaining > 0) {
-    state.textContent = '確認待ち';
-    state.className = 'tag warning';
-    showToast(`未確認の項目が${remaining}件あります。`);
-    return;
-  }
   state.textContent = '作成完了';
   state.className = 'tag ready';
   showToast('モック上で本編・サンプル・分割ZIPを作成した状態にしました。');
