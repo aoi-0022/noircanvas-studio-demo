@@ -6,6 +6,6 @@ Windowsアプリ「NoirCanvas Studio」1.0.0の5工程を確認する閲覧専�
 
 この公開ページは販売ページの代替ではなく、購入前に操作イメージを確認する補助資料です。
 
-公開予定URL: https://aoi-0022.github.io/noircanvas-studio-demo/
+公開URL: https://aoi-0022.github.io/noircanvas-studio-demo/
 
 © 2026 Aoi Asset Lab. 画面確認用です。製品や画面デザインをオープンソースとして提供するものではありません。
