@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="NoirCanvas Studioの5つの制作工程を購入前に確認する閲覧用操作モック">
+  <title>NoirCanvas Studio — 操作モック</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23120f18'/%3E%3Cpath d='M18 46V18l28 28V18' fill='none' stroke='%23e6a2ff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="制作工程">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span><strong>NoirCanvas</strong><small>Studio · 操作モック</small></span>
+      </div>
+
+      <nav class="steps">
+        <button class="step active" data-screen="project"><span>01</span>作品の準備</button>
+        <button class="step" data-screen="scenes"><span>02</span>シーン設計</button>
+        <button class="step" data-screen="generate"><span>03</span>候補を生成</button>
+        <button class="step" data-screen="review"><span>04</span>選別・確認</button>
+        <button class="step" data-screen="export"><span>05</span>販売用出力</button>
+      </nav>
+
+      <div class="sidebar-note">
+        <strong>安全なデモ表示</strong>
+        <p>実画像、生成処理、ファイル保存、外部通信は行いません。</p>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="制作工程を開く">☰</button>
+        <div>
+          <p class="eyebrow">PROJECT / NC-DEMO-001</p>
+          <h1 id="screenTitle">作品の準備</h1>
+        </div>
+        <div class="top-actions">
+          <span class="status-pill"><i></i><span id="connectionText">ComfyUI 未接続</span></span>
+          <button class="button secondary" id="connectionButton">接続を確認</button>
+        </div>
+      </header>
+
+      <div class="notice" role="note">
+        <span>R-18 制作プロジェクト</span>
+        <p>権利・成人・AI利用区分を確認してから販売用ファイルを作成します。</p>
+      </div>
+
+      <section class="screen active" id="project" data-title="作品の準備">
+        <div class="section-heading">
+          <div><p class="eyebrow">STEP 01</p><h2>作品情報と制作条件</h2></div>
+          <span class="save-state">入力内容はモックのため保存されません</span>
+        </div>
+
+        <div class="two-column">
+          <article class="panel">
+            <h3>基本情報</h3>
+            <div class="form-grid">
+              <label class="field wide"><span>作品管理名</span><input value="夜景ポートレート差分集" aria-label="作品管理名"></label>
+              <label class="field"><span>作品形式</span><select aria-label="作品形式"><option>CG・イラスト集</option><option>コミック</option></select></label>
+              <label class="field"><span>AI利用区分</span><select aria-label="AI利用区分"><option>AI生成</option><option>一部AI利用</option><option>AI不使用</option></select></label>
+              <label class="field"><span>販売用出力</span><select aria-label="販売用出力"><option>汎用・成人向けCG販売</option><option>カスタム設定</option></select></label>
+              <label class="field"><span>保存方式</span><select aria-label="保存方式"><option>元画像を変更しない</option></select></label>
+              <label class="field wide"><span>保存先</span><div class="input-action"><input value="D:\Works\NC-DEMO-001" readonly><button>選択</button></div></label>
+            </div>
+          </article>
+
+          <article class="panel compliance-panel">
+            <div class="panel-title"><h3>制作開始前の確認</h3><span class="tag warning">2項目未確認</span></div>
+            <label class="check-row"><input type="checkbox" checked><span><strong>自主制作・利用許諾</strong><small>参照素材と使用モデルの権利を確認しました</small></span></label>
+            <label class="check-row"><input type="checkbox"><span><strong>成人設定</strong><small>登場人物は全員成人で、年齢が曖昧な表現はありません</small></span></label>
+            <label class="check-row"><input type="checkbox"><span><strong>販売規則</strong><small>販売前に最新のプラットフォーム規則を確認します</small></span></label>
+          </article>
+        </div>
+
+        <article class="panel setup-card">
+          <div><p class="eyebrow">COMFYUI ENVIRONMENT</p><h3>専用環境を準備・接続</h3><p>既存環境を登録するか、検証済みPortable環境を別フォルダへ準備します。</p></div>
+            <div class="setup-meta"><span>Windows 11</span><span>NVIDIA GPU</span><span>ローカル処理</span><span>自動保存</span></div>
+          <button class="button primary" data-next="scenes">設定して次へ</button>
+        </article>
+      </section>
+
+      <section class="screen" id="scenes" data-title="シーン設計">
+        <div class="section-heading">
+          <div><p class="eyebrow">STEP 02</p><h2>シーンと差分を組み立てる</h2></div>
+          <button class="button secondary" id="addScene">＋ シーンを追加</button>
+        </div>
+
+        <div class="metric-strip">
+          <div><strong id="sceneCount">3</strong><span>シーン</span></div>
+          <div><strong>9</strong><span>予定差分</span></div>
+          <div><strong>27</strong><span>生成候補</span></div>
+          <div><strong>1024 px</strong><span>内部解像度</span></div>
+        </div>
+
+        <article class="panel table-panel">
+          <div class="scene-table" role="table" aria-label="シーン一覧">
+            <div class="scene-row table-head" role="row"><span>番号</span><span>管理名</span><span>構図</span><span>差分</span><span>候補</span><span>状態</span></div>
+            <div class="scene-row" role="row"><span>01</span><strong>導入カット</strong><span>上半身</span><span>3</span><span>9</span><span class="tag ready">準備済み</span></div>
+            <div class="scene-row" role="row"><span>02</span><strong>窓辺のカット</strong><span>全身</span><span>4</span><span>12</span><span class="tag ready">準備済み</span></div>
+            <div class="scene-row" role="row"><span>03</span><strong>締めカット</strong><span>クローズアップ</span><span>2</span><span>6</span><span class="tag draft">編集中</span></div>
+          </div>
+        </article>
+
+        <article class="panel prompt-panel">
+          <div class="panel-title"><div><p class="eyebrow">SCENE 03</p><h3>生成指示</h3></div><span class="tag neutral">安全なダミー</span></div>
+          <div class="form-grid">
+            <label class="field wide"><span>基本指示</span><textarea rows="3">original adult character, elegant night portrait, cinematic lighting, fictional setting</textarea></label>
+            <label class="field"><span>候補数</span><select><option>3候補</option><option>6候補</option></select></label>
+            <label class="field"><span>品質</span><select><option>高品質</option><option>標準</option></select></label>
+          </div>
+          <div class="panel-footer"><span>特定作家・作品・実在人物を指定するプリセットは提供しません。</span><button class="button primary" data-next="generate">生成画面へ</button></div>
+        </article>
+      </section>
+
+      <section class="screen" id="generate" data-title="候補を生成">
+        <div class="section-heading">
+          <div><p class="eyebrow">STEP 03</p><h2>少数を試してから残りを生成</h2></div>
+          <span class="tag ready" id="generationState">準備完了</span>
+        </div>
+
+        <div class="generation-grid">
+          <article class="panel generation-main">
+            <div class="preview-stage" aria-label="安全な生成プレビュー">
+              <div class="abstract-preview"><span>SAFE<br>PREVIEW</span></div>
+              <div class="preview-caption"><strong id="previewLabel">生成前プレビュー</strong><small>成人向け実画像はモックに含まれません</small></div>
+            </div>
+            <div class="progress-wrap">
+              <div><strong id="progressLabel">0 / 27</strong><span>候補生成</span></div>
+              <div class="progress-track"><i id="progressBar"></i></div>
+            </div>
+          </article>
+
+          <aside class="panel queue-panel">
+            <h3>今回の生成</h3>
+            <dl><div><dt>シーン</dt><dd>3</dd></div><div><dt>差分</dt><dd>9</dd></div><div><dt>候補</dt><dd>27枚</dd></div><div><dt>接続先</dt><dd>127.0.0.1:8188</dd></div></dl>
+            <button class="button primary full" id="simulateGeneration">選択シーンを1枚試す</button>
+            <button class="button secondary full" disabled id="generateRest">残りを生成</button>
+            <p class="helper">生成中は接続先と主要設定を固定します。</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="screen" id="review" data-title="選別・確認">
+        <div class="section-heading">
+          <div><p class="eyebrow">STEP 04</p><h2>候補を比較し、完成画像を確認</h2></div>
+          <div class="segmented"><button class="active">候補</button><button>採用済み</button><button>要修整</button></div>
+        </div>
+
+        <div class="candidate-grid">
+          <article class="candidate selected">
+            <div class="candidate-art art-one"><span>01-A</span></div>
+            <div><strong>導入カット / 候補A</strong><small>Seed 418920</small></div>
+            <div class="candidate-actions"><button class="hold-candidate">保留</button><button class="select-candidate">採用中</button></div>
+          </article>
+          <article class="candidate">
+            <div class="candidate-art art-two"><span>01-B</span></div>
+            <div><strong>導入カット / 候補B</strong><small>Seed 418921</small></div>
+            <div class="candidate-actions"><button class="hold-candidate">保留</button><button class="select-candidate">この画像を採用</button></div>
+          </article>
+          <article class="candidate needs-work">
+            <div class="candidate-art art-three"><span>01-C</span></div>
+            <div><strong>導入カット / 候補C</strong><small>要修整メモあり</small></div>
+            <div class="candidate-actions"><button class="hold-candidate">保留</button><button class="select-candidate">この画像を採用</button></div>
+          </article>
+        </div>
+
+        <article class="panel review-summary">
+          <div><strong>確認状況</strong><p>採用 1 / 9　·　要修整 1　·　未確認 7</p></div>
+          <div class="review-actions"><button class="button secondary">外部修整へ書き出す</button><button class="button primary" data-next="export">販売準備へ</button></div>
+        </article>
+      </section>
+
+      <section class="screen" id="export" data-title="販売用出力">
+        <div class="section-heading">
+          <div><p class="eyebrow">STEP 05</p><h2>販売用コピーを安全に仕上げる</h2></div>
+          <span class="tag warning" id="exportState">確認待ち</span>
+        </div>
+
+        <div class="profile-bar">
+          <div><span>出力プロファイル</span><strong>汎用・成人向けCG販売</strong></div>
+          <p>個別サイト名を製品の中心に置かず、必要な規格だけを更新可能な設定として管理します。</p>
+          <button class="button secondary">設定を確認</button>
+        </div>
+
+        <div class="export-grid">
+          <article class="panel package-card">
+            <div class="package-icon">ZIP</div>
+            <div><p class="eyebrow">PURCHASER PACKAGE</p><h3>購入者向け本編</h3><p>完成画像とreadmeだけを収録します。</p></div>
+            <ul><li>本編画像 9枚</li><li>readme.txt</li><li>credits.txt</li></ul>
+          </article>
+          <article class="panel package-card accent-card">
+            <div class="package-icon">WEB</div>
+            <div><p class="eyebrow">LISTING ASSETS</p><h3>商品ページ素材</h3><p>本編ZIPとは別フォルダに保存します。</p></div>
+            <ul><li>表紙・商品画像</li><li>透かし入りサンプル</li><li>商品説明・AI利用情報</li></ul>
+          </article>
+        </div>
+
+        <article class="panel final-checks">
+          <div class="panel-title"><h3>出品前の最終確認</h3><span>すべての確認が必要です</span></div>
+          <div class="check-grid">
+            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>権利と成人設定</strong><small>参照素材と登場人物を確認</small></span></label>
+            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>AI利用区分</strong><small>登録時の申告内容を確認</small></span></label>
+            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>全画像の目視確認</strong><small>完成画像を1枚ずつ確認</small></span></label>
+            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>本編とサンプル</strong><small>取り違えがないことを確認</small></span></label>
+            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>生成情報を除去</strong><small>販売用コピーからプロンプト・個人パスを除去</small></span></label>
+            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>サンプル保護</strong><small>透かしと連番ファイル名を確認</small></span></label>
+          </div>
+          <div class="panel-footer"><span id="exportMessage" aria-live="polite">6項目が未確認です。</span><button class="button primary" id="validateExport">出力内容を確認</button></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2026 Aoi Asset Lab · 閲覧用操作モック</p>
+    <p>画像生成、ファイル保存、外部通信、購入・決済は行いません。製品本体・モデル・利用者設定は含まれません。</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Copyright (c) 2026 Aoi Asset Lab. All rights reserved.
+
+This repository is published only to provide a read-only user-interface demonstration.
+The software, interface design, documentation, and related assets are not offered under
+an open-source license. Copying, redistribution, resale, or use in another product is
+not permitted without prior written permission.
