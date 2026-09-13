@@ -62,7 +62,7 @@ simulateButton.addEventListener('click', () => {
   generationState.textContent = '生成中';
   generationState.className = 'tag warning';
   progressBar.style.width = '4%';
-  progressLabel.textContent = '1 / 27';
+  progressLabel.textContent = '1 / 1,000';
   previewLabel.textContent = 'ダミー候補を確認中';
   window.setTimeout(() => {
     generationState.textContent = '試し生成完了';
@@ -77,10 +77,10 @@ simulateButton.addEventListener('click', () => {
 restButton.addEventListener('click', () => {
   generationState.textContent = '予約済み';
   generationState.className = 'tag ready';
-  progressBar.style.width = '38%';
-  progressLabel.textContent = '10 / 27';
-  previewLabel.textContent = '残り17候補を予約';
-  showToast('モック上で残り候補を予約しました。');
+  progressBar.style.width = '25%';
+  progressLabel.textContent = '250 / 1,000';
+  previewLabel.textContent = '未完了750件は再開可能';
+  showToast('モック上で長時間バッチを開始しました。');
 });
 
 document.querySelectorAll('.select-candidate').forEach((button) => {

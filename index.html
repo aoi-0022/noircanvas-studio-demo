@@ -90,9 +90,9 @@
         </div>
 
         <div class="metric-strip">
-          <div><strong id="sceneCount">3</strong><span>シーン</span></div>
-          <div><strong>9</strong><span>予定差分</span></div>
-          <div><strong>27</strong><span>生成候補</span></div>
+          <div><strong id="sceneCount">50</strong><span>シーン</span></div>
+          <div><strong>50</strong><span>予定差分</span></div>
+          <div><strong>1,000</strong><span>生成候補</span></div>
           <div><strong>1024 px</strong><span>内部解像度</span></div>
         </div>
 
@@ -118,7 +118,7 @@
 
       <section class="screen" id="generate" data-title="候補を生成">
         <div class="section-heading">
-          <div><p class="eyebrow">STEP 03</p><h2>少数を試してから残りを生成</h2></div>
+          <div><p class="eyebrow">STEP 03</p><h2>少数を試してから長時間バッチを開始</h2></div>
           <span class="tag ready" id="generationState">準備完了</span>
         </div>
 
@@ -129,17 +129,17 @@
               <div class="preview-caption"><strong id="previewLabel">生成前プレビュー</strong><small>成人向け実画像はモックに含まれません</small></div>
             </div>
             <div class="progress-wrap">
-              <div><strong id="progressLabel">0 / 27</strong><span>候補生成</span></div>
+              <div><strong id="progressLabel">0 / 1,000</strong><span>候補生成・1件ごとに保存</span></div>
               <div class="progress-track"><i id="progressBar"></i></div>
             </div>
           </article>
 
           <aside class="panel queue-panel">
             <h3>今回の生成</h3>
-            <dl><div><dt>シーン</dt><dd>3</dd></div><div><dt>差分</dt><dd>9</dd></div><div><dt>候補</dt><dd>27枚</dd></div><div><dt>接続先</dt><dd>127.0.0.1:8188</dd></div></dl>
+            <dl><div><dt>シーン</dt><dd>50</dd></div><div><dt>候補</dt><dd>1,000枚</dd></div><div><dt>再試行</dt><dd>最大3回</dd></div><div><dt>停止残容量</dt><dd>10 GB</dd></div><div><dt>接続先</dt><dd>127.0.0.1:8188</dd></div></dl>
             <button class="button primary full" id="simulateGeneration">選択シーンを1枚試す</button>
-            <button class="button secondary full" disabled id="generateRest">残りを生成</button>
-            <p class="helper">生成中は接続先と主要設定を固定します。</p>
+            <button class="button secondary full" disabled id="generateRest">未完了999件を生成／再開</button>
+            <p class="helper">固定seed・自動再試行・途中再開・失敗レポートに対応します。</p>
           </aside>
         </div>
       </section>
