@@ -120,6 +120,11 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); box-sha
 .scene-row:last-child { border-bottom: 0; }
 .scene-row.table-head { min-height: 42px; background: #272e3a; color: #a9a5ad; font-size: 11px; text-transform: uppercase; }
 .prompt-panel { margin-top: 18px; padding: 22px; }
+.prompt-columns { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.prompt-columns > div { min-width: 0; padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: #151922; }
+.prompt-columns strong { display: block; margin-bottom: 10px; color: var(--muted); font-size: 12px; }
+.prompt-chip { width: 100%; min-height: 34px; margin-top: 6px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 7px; background: #242a35; color: var(--muted); text-align: left; cursor: pointer; }
+.prompt-chip.selected { border-color: #68434a; background: var(--accent-soft); color: var(--text); box-shadow: inset 3px 0 var(--accent); }
 .panel-footer { margin-top: 18px; padding-top: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); }
 .panel-footer > span { color: var(--muted); font-size: 13px; }
 
@@ -196,6 +201,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); box-sha
   .workspace { padding: 0 22px 40px; }
   .mobile-menu { display: block; }
   .two-column, .generation-grid { grid-template-columns: 1fr; }
+  .prompt-columns { grid-template-columns: repeat(2, 1fr); }
   .candidate-art { min-height: 220px; }
 }
 
@@ -222,6 +228,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); box-sha
   .review-actions { flex-direction: column; }
   .preview-stage { min-height: 320px; }
   .preview-caption { flex-direction: column; }
+  .prompt-columns { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

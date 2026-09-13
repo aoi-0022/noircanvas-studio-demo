@@ -19,7 +19,7 @@
 
       <nav class="steps">
         <button class="step active" data-screen="project"><span>01</span>作品プロフィール</button>
-        <button class="step" data-screen="scenes"><span>02</span>シーン設計</button>
+        <button class="step" data-screen="scenes"><span>02</span>プロンプトミキサー</button>
         <button class="step" data-screen="generate"><span>03</span>画像生成</button>
         <button class="step" data-screen="review"><span>04</span>品質レビュー</button>
         <button class="step" data-screen="export"><span>05</span>販売用出力</button>
@@ -46,33 +46,34 @@
 
       <div class="notice" role="note">
         <span>R-18 制作プロジェクト</span>
-        <p>成人向けCG作品の生成・選別・販売準備をローカルで管理します。権利、必要な修整、AI利用表示を公開前に確認します。</p>
+        <p>100個の内蔵プロンプト部品を掛け合わせ、txt2img／img2imgで大量生成できます。</p>
       </div>
 
       <section class="screen active" id="project" data-title="作品プロフィール">
         <div class="section-heading">
-          <div><p class="eyebrow">01 / PROJECT PROFILE</p><h2>成人向けCG作品の設定</h2></div>
+          <div><p class="eyebrow">01 / WORKSPACE</p><h2>保存先と生成方法を設定</h2></div>
           <span class="save-state">入力内容はモックのため保存されません</span>
         </div>
 
         <div class="two-column">
           <article class="panel">
-            <h3>基本情報</h3>
+            <h3>プロジェクト</h3>
             <div class="form-grid">
               <label class="field wide"><span>作品管理名</span><input value="夜景ポートレート差分集" aria-label="作品管理名"></label>
-              <label class="field"><span>作品形式</span><select aria-label="作品形式"><option>CG・イラスト集</option><option>コミック</option></select></label>
-              <label class="field"><span>AI利用区分</span><select aria-label="AI利用区分"><option>AI生成</option><option>一部AI利用</option><option>AI不使用</option></select></label>
-              <label class="field"><span>販売用出力</span><select aria-label="販売用出力"><option>汎用・成人向けCG販売</option><option>カスタム設定</option></select></label>
-              <label class="field"><span>保存方式</span><select aria-label="保存方式"><option>元画像を変更しない</option></select></label>
+              <label class="field"><span>生成方法</span><select aria-label="生成方法"><option>テキストから生成</option><option>参照画像から生成</option></select></label>
+              <label class="field"><span>標準候補数</span><select aria-label="標準候補数"><option>各5枚</option><option>各10枚</option><option>各20枚</option></select></label>
               <label class="field wide"><span>保存先</span><div class="input-action"><input value="D:\Works\NC-DEMO-001" readonly><button>選択</button></div></label>
             </div>
           </article>
 
           <article class="panel compliance-panel">
-            <div class="panel-title"><h3>制作開始前の確認</h3><span class="tag warning">2項目未確認</span></div>
-            <label class="check-row"><input type="checkbox" checked><span><strong>自主制作・利用許諾</strong><small>参照素材と使用モデルの権利を確認しました</small></span></label>
-            <label class="check-row"><input type="checkbox"><span><strong>成人設定</strong><small>登場人物は全員成人で、年齢が曖昧な表現はありません</small></span></label>
-            <label class="check-row"><input type="checkbox"><span><strong>販売規則</strong><small>販売前に最新のプラットフォーム規則を確認します</small></span></label>
+            <div class="panel-title"><h3>参照画像から派生</h3><span class="tag ready">img2img</span></div>
+            <div class="form-grid">
+              <label class="field wide"><span>参照画像</span><div class="input-action"><input value="reference.png" readonly><button>画像選択</button></div></label>
+              <label class="field"><span>変化量</span><input value="0.55"></label>
+              <label class="field"><span>動作</span><select><option>構図を残して変化</option></select></label>
+            </div>
+            <p class="helper">参照画像はローカルComfyUIのinputへ渡し、外部サービスへ送信しません。</p>
           </article>
         </div>
 
@@ -83,36 +84,28 @@
         </article>
       </section>
 
-      <section class="screen" id="scenes" data-title="シーン設計">
+      <section class="screen" id="scenes" data-title="プロンプトミキサー">
         <div class="section-heading">
-          <div><p class="eyebrow">02 / SCENE DESIGN</p><h2>成人向けシーンと差分を組み立てる</h2></div>
-          <button class="button secondary" id="addScene">＋ シーンを追加</button>
+          <div><p class="eyebrow">02 / PROMPT MIXER</p><h2>100項目から生成パターンを掛け合わせる</h2></div>
+          <span class="tag ready">100 PROMPT PARTS</span>
         </div>
 
         <div class="metric-strip">
-          <div><strong id="sceneCount">50</strong><span>シーン</span></div>
-          <div><strong>50</strong><span>予定差分</span></div>
-          <div><strong>1,000</strong><span>生成候補</span></div>
-          <div><strong>1024 px</strong><span>内部解像度</span></div>
+          <div><strong>2</strong><span>人物</span></div>
+          <div><strong>3</strong><span>衣装</span></div>
+          <div><strong>2 × 2 × 2</strong><span>ポーズ・場所・撮影</span></div>
+          <div><strong id="sceneCount">48</strong><span>生成パターン</span></div>
         </div>
 
-        <article class="panel table-panel">
-          <div class="scene-table" role="table" aria-label="シーン一覧">
-            <div class="scene-row table-head" role="row"><span>番号</span><span>管理名</span><span>構図</span><span>差分</span><span>候補</span><span>状態</span></div>
-            <div class="scene-row" role="row"><span>01</span><strong>導入カット</strong><span>上半身</span><span>3</span><span>9</span><span class="tag ready">準備済み</span></div>
-            <div class="scene-row" role="row"><span>02</span><strong>窓辺のカット</strong><span>全身</span><span>4</span><span>12</span><span class="tag ready">準備済み</span></div>
-            <div class="scene-row" role="row"><span>03</span><strong>締めカット</strong><span>クローズアップ</span><span>2</span><span>6</span><span class="tag draft">編集中</span></div>
-          </div>
-        </article>
-
         <article class="panel prompt-panel">
-          <div class="panel-title"><div><p class="eyebrow">SCENE 03</p><h3>生成指示</h3></div><span class="tag neutral">安全なダミー</span></div>
-          <div class="form-grid">
-            <label class="field wide"><span>基本指示</span><textarea rows="3">original adult character, elegant night portrait, cinematic lighting, fictional setting</textarea></label>
-            <label class="field"><span>候補数</span><select><option>3候補</option><option>6候補</option></select></label>
-            <label class="field"><span>品質</span><select><option>高品質</option><option>標準</option></select></label>
+          <div class="prompt-columns">
+            <div><strong>人物（20）</strong><button class="prompt-chip selected">大人の女性・黒髪</button><button class="prompt-chip selected">大人の女性・銀髪</button><button class="prompt-chip">大人の女性・眼鏡</button></div>
+            <div><strong>衣装（20）</strong><button class="prompt-chip selected">イブニングドレス</button><button class="prompt-chip selected">ランジェリー</button><button class="prompt-chip selected">シルクのナイトウェア</button></div>
+            <div><strong>ポーズ（20）</strong><button class="prompt-chip selected">椅子に座る</button><button class="prompt-chip selected">振り返り</button><button class="prompt-chip">窓辺に立つ</button></div>
+            <div><strong>場所（20）</strong><button class="prompt-chip selected">高級ホテル</button><button class="prompt-chip selected">夜景の見える部屋</button><button class="prompt-chip">撮影スタジオ</button></div>
+            <div><strong>撮影（20）</strong><button class="prompt-chip selected">上半身</button><button class="prompt-chip selected">暖色の間接照明</button><button class="prompt-chip">映画的な色調</button></div>
           </div>
-          <div class="panel-footer"><span>特定作家・作品・実在人物を指定するプリセットは提供しません。</span><button class="button primary" data-next="generate">生成画面へ</button></div>
+          <div class="panel-footer"><span>2 × 3 × 2 × 2 × 2 = 48パターン　各5枚 = 240枚</span><button class="button primary" id="buildMix" data-next="generate">組み合わせを作成</button></div>
         </article>
       </section>
 
@@ -137,7 +130,7 @@
           <aside class="panel queue-panel">
             <h3>今回の生成</h3>
             <dl><div><dt>シーン</dt><dd>50</dd></div><div><dt>候補</dt><dd>1,000枚</dd></div><div><dt>再試行</dt><dd>最大3回</dd></div><div><dt>停止残容量</dt><dd>10 GB</dd></div><div><dt>接続先</dt><dd>127.0.0.1:8188</dd></div></dl>
-            <button class="button primary full" id="simulateGeneration">選択シーンを1枚試す</button>
+            <button class="button primary full" id="simulateGeneration">選択パターンを1枚試す</button>
             <button class="button secondary full" disabled id="generateRest">未完了999件を生成／再開</button>
             <p class="helper">固定seed・自動再試行・途中再開・失敗レポートに対応します。</p>
           </aside>
@@ -200,16 +193,9 @@
         </div>
 
         <article class="panel final-checks">
-          <div class="panel-title"><h3>出品前の最終確認</h3><span>すべての確認が必要です</span></div>
-          <div class="check-grid">
-            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>権利と成人設定</strong><small>参照素材と登場人物を確認</small></span></label>
-            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>AI利用区分</strong><small>登録時の申告内容を確認</small></span></label>
-            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>全画像の目視確認</strong><small>完成画像を1枚ずつ確認</small></span></label>
-            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>本編とサンプル</strong><small>取り違えがないことを確認</small></span></label>
-            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>生成情報を除去</strong><small>販売用コピーからプロンプト・個人パスを除去</small></span></label>
-            <label class="check-row"><input class="export-check" type="checkbox"><span><strong>サンプル保護</strong><small>透かしと連番ファイル名を確認</small></span></label>
-          </div>
-          <div class="panel-footer"><span id="exportMessage" aria-live="polite">6項目が未確認です。</span><button class="button primary" id="validateExport">出力内容を確認</button></div>
+          <div class="panel-title"><h3>すぐに書き出せます</h3><span>元画像は変更しません</span></div>
+          <p class="helper">採用画像を連番PNGへ再エンコードし、透かし入りサンプルと分割ZIPを別フォルダへ作成します。</p>
+          <div class="panel-footer"><span id="exportMessage" aria-live="polite">採用 9枚・200枚ごとにZIP分割</span><button class="button primary" id="validateExport">販売用ZIPを作成</button></div>
         </article>
       </section>
     </main>

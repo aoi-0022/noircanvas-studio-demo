@@ -38,7 +38,7 @@ connectionButton.addEventListener('click', () => {
   showToast(connected ? 'モック上で接続済みに切り替えました。' : 'モック上の接続表示を解除しました。');
 });
 
-document.getElementById('addScene').addEventListener('click', () => {
+document.getElementById('addScene')?.addEventListener('click', () => {
   const table = document.querySelector('.scene-table');
   const count = table.querySelectorAll('.scene-row:not(.table-head)').length + 1;
   const row = document.createElement('div');
@@ -48,6 +48,13 @@ document.getElementById('addScene').addEventListener('click', () => {
   table.appendChild(row);
   document.getElementById('sceneCount').textContent = String(count);
   showToast('モック上にシーンを1件追加しました。');
+});
+
+document.querySelectorAll('.prompt-chip').forEach((button) => {
+  button.addEventListener('click', () => {
+    button.classList.toggle('selected');
+    showToast('選択を切り替えました。製品版では直積の件数を自動計算します。');
+  });
 });
 
 const simulateButton = document.getElementById('simulateGeneration');
@@ -123,7 +130,7 @@ const exportChecks = [...document.querySelectorAll('.export-check')];
 const exportMessage = document.getElementById('exportMessage');
 function updateExportCount() {
   const remaining = exportChecks.filter((check) => !check.checked).length;
-  exportMessage.textContent = remaining === 0 ? 'すべて確認済みです。' : `${remaining}項目が未確認です。`;
+  exportMessage.textContent = remaining === 0 ? '販売用ZIPを作成できます。' : `${remaining}項目が未確認です。`;
 }
 exportChecks.forEach((check) => check.addEventListener('change', updateExportCount));
 
@@ -136,7 +143,7 @@ document.getElementById('validateExport').addEventListener('click', () => {
     showToast(`未確認の項目が${remaining}件あります。`);
     return;
   }
-  state.textContent = '出力可能';
+  state.textContent = '作成完了';
   state.className = 'tag ready';
-  showToast('本編と商品ページ素材を分けて出力できる状態です。');
+  showToast('モック上で本編・サンプル・分割ZIPを作成した状態にしました。');
 });
