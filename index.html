@@ -46,7 +46,7 @@
 
       <div class="notice" role="note">
         <span>R-18 制作プロジェクト</span>
-        <p>100個の内蔵プロンプト部品を掛け合わせ、txt2img／img2imgで大量生成できます。</p>
+        <p>性癖・R18演出を含む120個の内蔵プロンプト部品を掛け合わせ、txt2img／img2imgで大量生成できます。</p>
       </div>
 
       <section class="screen active" id="project" data-title="生成環境">
@@ -86,15 +86,15 @@
 
       <section class="screen" id="scenes" data-title="プロンプトミキサー">
         <div class="section-heading">
-          <div><p class="eyebrow">02 / PROMPT MIXER</p><h2>100項目から生成パターンを掛け合わせる</h2></div>
-          <span class="tag ready">100 PROMPT PARTS</span>
+          <div><p class="eyebrow">02 / PROMPT MIXER</p><h2>120項目から生成パターンを掛け合わせる</h2></div>
+          <span class="tag ready">120 PROMPT PARTS</span>
         </div>
 
         <div class="metric-strip">
           <div><strong>2</strong><span>人物</span></div>
           <div><strong>3</strong><span>衣装</span></div>
-          <div><strong>2 × 2 × 2</strong><span>ポーズ・場所・撮影</span></div>
-          <div><strong id="sceneCount">48</strong><span>生成パターン</span></div>
+          <div><strong>2 × 2 × 2 × 2</strong><span>ポーズ・場所・撮影・性癖</span></div>
+          <div><strong id="sceneCount">96</strong><span>生成パターン</span></div>
         </div>
 
         <article class="panel prompt-panel">
@@ -104,8 +104,9 @@
             <div><strong>ポーズ（20）</strong><button class="prompt-chip selected">椅子に座る</button><button class="prompt-chip selected">振り返り</button><button class="prompt-chip">窓辺に立つ</button></div>
             <div><strong>場所（20）</strong><button class="prompt-chip selected">高級ホテル</button><button class="prompt-chip selected">夜景の見える部屋</button><button class="prompt-chip">撮影スタジオ</button></div>
             <div><strong>撮影（20）</strong><button class="prompt-chip selected">上半身</button><button class="prompt-chip selected">暖色の間接照明</button><button class="prompt-chip">映画的な色調</button></div>
+            <div><strong>性癖・R18（20）</strong><button class="prompt-chip selected">黒ストッキング</button><button class="prompt-chip selected">ロープ拘束</button><button class="prompt-chip">主導的な雰囲気</button></div>
           </div>
-          <div class="panel-footer"><span>2 × 3 × 2 × 2 × 2 = 48パターン　各5枚 = 240枚</span><button class="button primary" id="buildMix" data-next="generate">組み合わせを作成</button></div>
+          <div class="panel-footer"><span>2 × 3 × 2 × 2 × 2 × 2 = 96パターン　各5枚 = 480枚</span><button class="button primary" id="buildMix" data-next="generate">組み合わせを作成</button></div>
         </article>
       </section>
 
@@ -129,7 +130,7 @@
 
           <aside class="panel queue-panel">
             <h3>今回の生成</h3>
-            <dl><div><dt>シーン</dt><dd>50</dd></div><div><dt>候補</dt><dd>1,000枚</dd></div><div><dt>再試行</dt><dd>最大3回</dd></div><div><dt>停止残容量</dt><dd>10 GB</dd></div><div><dt>接続先</dt><dd>127.0.0.1:8188</dd></div></dl>
+            <dl><div><dt>生成パターン</dt><dd>50</dd></div><div><dt>候補</dt><dd>1,000枚</dd></div><div><dt>画像生成モデル</dt><dd>選択済み</dd></div><div><dt>再試行</dt><dd>最大3回</dd></div><div><dt>停止残容量</dt><dd>10 GB</dd></div><div><dt>接続先</dt><dd>127.0.0.1:8188</dd></div></dl>
             <button class="button primary full" id="simulateGeneration">選択パターンを1枚試す</button>
             <button class="button secondary full" disabled id="generateRest">未完了999件を生成／再開</button>
             <p class="helper">固定seed・自動再試行・途中再開・失敗レポートに対応します。</p>
