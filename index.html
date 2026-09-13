@@ -6,7 +6,7 @@
   <meta name="referrer" content="no-referrer">
   <meta name="description" content="NoirCanvas Studioの5つの制作工程を購入前に確認する閲覧用操作モック">
   <title>NoirCanvas Studio — 操作モック</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23120f18'/%3E%3Cpath d='M18 46V18l28 28V18' fill='none' stroke='%23e6a2ff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23151922'/%3E%3Cpath d='M18 46V18l28 28V18' fill='none' stroke='%23ce8b76' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,20 +14,20 @@
     <aside class="sidebar" aria-label="制作工程">
       <div class="brand">
         <span class="brand-mark" aria-hidden="true">N</span>
-        <span><strong>NoirCanvas</strong><small>Studio · 操作モック</small></span>
+        <span><strong>NoirCanvas</strong><small>ADULT CG PRODUCTION</small></span>
       </div>
 
       <nav class="steps">
-        <button class="step active" data-screen="project"><span>01</span>作品の準備</button>
+        <button class="step active" data-screen="project"><span>01</span>作品プロフィール</button>
         <button class="step" data-screen="scenes"><span>02</span>シーン設計</button>
-        <button class="step" data-screen="generate"><span>03</span>候補を生成</button>
-        <button class="step" data-screen="review"><span>04</span>選別・確認</button>
+        <button class="step" data-screen="generate"><span>03</span>画像生成</button>
+        <button class="step" data-screen="review"><span>04</span>品質レビュー</button>
         <button class="step" data-screen="export"><span>05</span>販売用出力</button>
       </nav>
 
       <div class="sidebar-note">
-        <strong>安全なデモ表示</strong>
-        <p>実画像、生成処理、ファイル保存、外部通信は行いません。</p>
+        <strong>R-18 WORKSPACE</strong>
+        <p>1000件バッチ対応。実画像、生成処理、ファイル保存、外部通信は行いません。</p>
       </div>
     </aside>
 
@@ -35,8 +35,8 @@
       <header class="topbar">
         <button class="mobile-menu" id="mobileMenu" aria-label="制作工程を開く">☰</button>
         <div>
-          <p class="eyebrow">PROJECT / NC-DEMO-001</p>
-          <h1 id="screenTitle">作品の準備</h1>
+          <p class="eyebrow">R-18 / LOCAL WORKSPACE / NC-DEMO-001</p>
+          <h1 id="screenTitle">作品プロフィール</h1>
         </div>
         <div class="top-actions">
           <span class="status-pill"><i></i><span id="connectionText">ComfyUI 未接続</span></span>
@@ -46,12 +46,12 @@
 
       <div class="notice" role="note">
         <span>R-18 制作プロジェクト</span>
-        <p>権利・成人・AI利用区分を確認してから販売用ファイルを作成します。</p>
+        <p>成人向けCG作品の生成・選別・販売準備をローカルで管理します。権利、必要な修整、AI利用表示を公開前に確認します。</p>
       </div>
 
-      <section class="screen active" id="project" data-title="作品の準備">
+      <section class="screen active" id="project" data-title="作品プロフィール">
         <div class="section-heading">
-          <div><p class="eyebrow">STEP 01</p><h2>作品情報と制作条件</h2></div>
+          <div><p class="eyebrow">01 / PROJECT PROFILE</p><h2>成人向けCG作品の設定</h2></div>
           <span class="save-state">入力内容はモックのため保存されません</span>
         </div>
 
@@ -85,7 +85,7 @@
 
       <section class="screen" id="scenes" data-title="シーン設計">
         <div class="section-heading">
-          <div><p class="eyebrow">STEP 02</p><h2>シーンと差分を組み立てる</h2></div>
+          <div><p class="eyebrow">02 / SCENE DESIGN</p><h2>成人向けシーンと差分を組み立てる</h2></div>
           <button class="button secondary" id="addScene">＋ シーンを追加</button>
         </div>
 
@@ -116,9 +116,9 @@
         </article>
       </section>
 
-      <section class="screen" id="generate" data-title="候補を生成">
+      <section class="screen" id="generate" data-title="画像生成">
         <div class="section-heading">
-          <div><p class="eyebrow">STEP 03</p><h2>少数を試してから長時間バッチを開始</h2></div>
+          <div><p class="eyebrow">03 / LOCAL GENERATION</p><h2>成人向けCGを少数確認してから一括生成</h2></div>
           <span class="tag ready" id="generationState">準備完了</span>
         </div>
 
@@ -144,9 +144,9 @@
         </div>
       </section>
 
-      <section class="screen" id="review" data-title="選別・確認">
+      <section class="screen" id="review" data-title="品質レビュー">
         <div class="section-heading">
-          <div><p class="eyebrow">STEP 04</p><h2>候補を比較し、完成画像を確認</h2></div>
+          <div><p class="eyebrow">04 / QUALITY REVIEW</p><h2>構図、顔・手、必要な修整を確認</h2></div>
           <div class="segmented"><button class="active">候補</button><button>採用済み</button><button>要修整</button></div>
         </div>
 
@@ -176,7 +176,7 @@
 
       <section class="screen" id="export" data-title="販売用出力">
         <div class="section-heading">
-          <div><p class="eyebrow">STEP 05</p><h2>販売用コピーを安全に仕上げる</h2></div>
+          <div><p class="eyebrow">05 / SALES PACKAGE</p><h2>本編・サンプル・登録資料を書き出す</h2></div>
           <span class="tag warning" id="exportState">確認待ち</span>
         </div>
 
