@@ -27,7 +27,7 @@
 
       <div class="sidebar-note">
         <strong>R-18 WORKSPACE</strong>
-        <p>1000件バッチ対応。実画像、生成処理、ファイル保存、外部通信は行いません。</p>
+        <p>最大100,000候補の計画に対応。1,000件耐久試験済み。実画像、生成処理、ファイル保存、外部通信は行いません。</p>
       </div>
     </aside>
 
@@ -98,9 +98,10 @@
         </div>
 
         <article class="panel prompt-panel">
-          <p class="prompt-help">架空の20歳以上・同意のある成人表現専用。8分野を切り替え、自作プロンプトも追加できます。</p>
-          <div class="prompt-tabs" role="tablist">
-            <button class="prompt-tab active" data-prompt-tab="character">人物・体型（30）</button>
+          <p class="prompt-help">左の分野を選ぶ方式に変更しました。「人数・人物」は1つだけ選択し、1人用プリセットなら余計な人物が入りにくい指定を自動で加えます。</p>
+          <div class="prompt-browser">
+          <div class="prompt-tabs" role="tablist" aria-label="プロンプト分野">
+            <button class="prompt-tab active" data-prompt-tab="character">人数・人物（1つ）</button>
             <button class="prompt-tab" data-prompt-tab="wardrobe">衣装・露出（30）</button>
             <button class="prompt-tab" data-prompt-tab="expression">表情・反応（30）</button>
             <button class="prompt-tab" data-prompt-tab="pose">R18ポーズ（30）</button>
@@ -109,7 +110,8 @@
             <button class="prompt-tab" data-prompt-tab="adult">プレイ（30）</button>
             <button class="prompt-tab" data-prompt-tab="fetish">フェチ・質感（30）</button>
           </div>
-          <div class="prompt-category active" data-prompt-panel="character"><button class="prompt-chip selected"><strong>成人女性・20代</strong><small>one fictional adult woman in her twenties</small></button><button class="prompt-chip selected"><strong>グラマラス</strong><small>adult woman, voluptuous curvy body</small></button><button class="prompt-chip"><strong>熟女・40代以上</strong><small>mature adult woman over forty</small></button><button class="prompt-chip"><strong>成人女性同士</strong><small>two adult women, consenting lovers</small></button></div>
+          <div class="prompt-workspace">
+          <div class="prompt-category active" data-prompt-panel="character" data-selection="single"><button class="prompt-chip selected"><strong>1人・成人女性（20代）</strong><small>solo, 1girl, one fictional adult woman in her twenties, no other people</small></button><button class="prompt-chip"><strong>1人・グラマラス女性</strong><small>solo, 1girl, voluptuous adult woman, no other people</small></button><button class="prompt-chip"><strong>1人・熟女（40代以上）</strong><small>solo, 1girl, mature adult woman over forty, no other people</small></button><button class="prompt-chip"><strong>2人・成人女性同士</strong><small>two people, two adult women, consenting lovers</small></button></div>
           <div class="prompt-category" data-prompt-panel="wardrobe"><button class="prompt-chip selected"><strong>レースランジェリー</strong><small>revealing lace lingerie</small></button><button class="prompt-chip selected"><strong>シースルーランジェリー</strong><small>transparent sheer lingerie</small></button><button class="prompt-chip"><strong>トップレス</strong><small>adult topless nudity</small></button><button class="prompt-chip"><strong>全裸</strong><small>fully nude fictional adult</small></button></div>
           <div class="prompt-category" data-prompt-panel="expression"><button class="prompt-chip selected"><strong>熱い視線</strong><small>intense lustful gaze at viewer</small></button><button class="prompt-chip"><strong>恍惚</strong><small>ecstatic adult expression</small></button><button class="prompt-chip"><strong>絶頂寸前</strong><small>adult expression on the edge of climax</small></button></div>
           <div class="prompt-category" data-prompt-panel="pose"><button class="prompt-chip selected"><strong>脚を開いて座る</strong><small>adult sitting with legs spread</small></button><button class="prompt-chip"><strong>四つん這い</strong><small>adult on all fours, erotic pose</small></button><button class="prompt-chip"><strong>騎乗位構図</strong><small>consenting adult cowgirl position</small></button></div>
@@ -118,13 +120,15 @@
           <div class="prompt-category" data-prompt-panel="adult"><button class="prompt-chip selected"><strong>官能ポーズ</strong><small>consensual adult erotic posing</small></button><button class="prompt-chip"><strong>セルフプレジャー</strong><small>consensual adult solo masturbation</small></button><button class="prompt-chip"><strong>成人男女の性交</strong><small>explicit consensual sex between adults</small></button></div>
           <div class="prompt-category" data-prompt-panel="fetish"><button class="prompt-chip selected"><strong>濡れた肌</strong><small>wet adult skin, glossy highlights</small></button><button class="prompt-chip"><strong>黒ストッキング</strong><small>black thigh-high stockings fetish</small></button><button class="prompt-chip"><strong>体液表現</strong><small>explicit adult bodily-fluid detail</small></button></div>
           <div class="custom-prompt-row"><label>カスタム表示名<input id="customPromptLabel" placeholder="例：自作の衣装" /></label><label>生成プロンプト<input id="customPromptValue" placeholder="例：original costume, detailed fabric" /></label><button class="button primary" id="addCustomPrompt">追加して選択</button><button class="button" id="deleteCustomPrompt">カスタム削除</button></div>
-          <div class="panel-footer"><span>2 × 2 × 2 × 2 × 2 × 2 × 2 × 1 = 128パターン　各5枚 = 640枚</span><button class="button primary" id="buildMix" data-next="generate">組み合わせを作成</button></div>
+          </div>
+          </div>
+          <div class="panel-footer"><span>1 × 2 × 2 × 2 × 2 × 2 × 2 × 2 = 128パターン　各5枚 = 640枚</span><button class="button primary" id="buildMix" data-next="generate">組み合わせを作成</button></div>
         </article>
       </section>
 
       <section class="screen" id="generate" data-title="まとめて生成">
         <div class="section-heading">
-          <div><p class="eyebrow">03 / 画像を作る</p><h2>選んだ組み合わせから画像を作る</h2><p class="screen-purpose"><strong>ここですること：</strong>まず1枚だけ試し、絵柄や構図を確認してから残りをまとめて生成します。</p></div>
+          <div><p class="eyebrow">03 / 画像を作る</p><h2>選んだ組み合わせから画像を作る</h2><p class="screen-purpose"><strong>ここですること：</strong>モデル名を確認し、高品質設定でまず1枚だけ試してから残りをまとめて生成します。作品JSONは自動保存です。</p></div>
           <span class="tag ready" id="generationState">準備完了</span>
         </div>
 
@@ -142,17 +146,18 @@
 
           <aside class="panel queue-panel">
             <h3>これから作る画像</h3>
-            <dl><div><dt>生成パターン</dt><dd>50</dd></div><div><dt>候補</dt><dd>1,000枚</dd></div><div><dt>画像生成モデル</dt><dd>選択済み</dd></div><div><dt>再試行</dt><dd>最大3回</dd></div><div><dt>停止残容量</dt><dd>10 GB</dd></div><div><dt>接続先</dt><dd>127.0.0.1:8188</dd></div></dl>
+            <dl><div><dt>生成パターン</dt><dd>50</dd></div><div><dt>候補</dt><dd>1,000枚</dd></div><div><dt>使用中モデル</dt><dd>adult-art-xl.safetensors</dd></div><div><dt>品質設定</dt><dd>32 Steps / CFG 5.5</dd></div><div><dt>サンプラー</dt><dd>DPM++ 2M SDE / Karras</dd></div><div><dt>接続先</dt><dd>127.0.0.1:8188</dd></div></dl>
             <button class="button primary full" id="simulateGeneration">① まず1枚だけ試す</button>
             <button class="button secondary full" disabled id="generateRest">② 残り999枚をまとめて生成</button>
-            <p class="helper">途中で止めても、同じボタンから未完了分だけ再開できます。</p>
+            <button class="button secondary full" id="clearGeneration">停止・エラー状態をクリア</button>
+            <p class="helper">開始時に作品フォルダへJSONを自動保存します。停止後は状態だけをクリアでき、完了済み画像は残ります。</p>
           </aside>
         </div>
       </section>
 
       <section class="screen" id="review" data-title="販売画像を選ぶ">
         <div class="section-heading">
-          <div><p class="eyebrow">04 / 画像を選ぶ</p><h2>生成結果から販売に使う画像を選ぶ</h2><p class="screen-purpose"><strong>ここですること：</strong>1枚ずつ確認して「販売に使う」「あとで確認」「修正が必要」に分けます。</p></div>
+          <div><p class="eyebrow">04 / 画像を選ぶ</p><h2>生成結果から販売に使う画像を選ぶ</h2><p class="screen-purpose"><strong>ここですること：</strong>1枚ずつ判定します。判定ボタンを押すと次の画像へ自動で進みます。</p></div>
           <div class="segmented"><button class="active">未判定</button><button>販売に使う</button><button>修正が必要</button></div>
         </div>
 

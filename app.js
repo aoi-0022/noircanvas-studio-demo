@@ -52,6 +52,13 @@ document.getElementById('addScene')?.addEventListener('click', () => {
 
 document.querySelectorAll('.prompt-chip').forEach((button) => {
   button.addEventListener('click', () => {
+    const panel = button.closest('.prompt-category');
+    if (panel?.dataset.selection === 'single') {
+      panel.querySelectorAll('.prompt-chip').forEach((chip) => chip.classList.remove('selected'));
+      button.classList.add('selected');
+      showToast('人数・人物を1つに固定しました。1人用は余計な人物を抑える指定を含みます。');
+      return;
+    }
     button.classList.toggle('selected');
     showToast('選択を切り替えました。製品版では直積の件数を自動計算します。');
   });
@@ -125,6 +132,27 @@ restButton.addEventListener('click', () => {
   showToast('モック上で長時間バッチを開始しました。');
 });
 
+document.getElementById('clearGeneration')?.addEventListener('click', () => {
+  generationState.textContent = '準備完了';
+  generationState.className = 'tag ready';
+  progressBar.style.width = '0';
+  progressLabel.textContent = '0 / 1,000';
+  previewLabel.textContent = '停止・エラー状態をクリア済み';
+  restButton.disabled = true;
+  showToast('停止・エラー状態だけをクリアしました。完了済み画像は保持します。');
+});
+
+function advanceCandidate(card) {
+  const cards = [...document.querySelectorAll('.candidate')];
+  const index = cards.indexOf(card);
+  const next = cards[index + 1];
+  cards.forEach((item) => item.classList.remove('reviewing'));
+  if (next) {
+    next.classList.add('reviewing');
+    next.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
 document.querySelectorAll('.select-candidate').forEach((button) => {
   button.addEventListener('click', () => {
     document.querySelectorAll('.candidate').forEach((card) => {
@@ -136,7 +164,8 @@ document.querySelectorAll('.select-candidate').forEach((button) => {
     card.querySelector('.hold-candidate').textContent = 'あとで確認';
     card.classList.add('selected');
     button.textContent = '販売に使用中';
-    showToast('販売に使う画像を切り替えました。');
+    advanceCandidate(card);
+    showToast('販売に使う画像へ判定し、次の画像へ進みました。');
   });
 });
 
@@ -149,7 +178,8 @@ document.querySelectorAll('.hold-candidate').forEach((button) => {
       card.querySelector('.select-candidate').textContent = '販売に使用';
     }
     button.textContent = held ? 'あとで確認中' : 'あとで確認';
-    showToast(held ? 'あとで確認する画像にしました。元画像は移動・削除しません。' : '未判定へ戻しました。');
+    if (held) advanceCandidate(card);
+    showToast(held ? '保留へ判定し、次の画像へ進みました。' : '未判定へ戻しました。');
   });
 });
 
