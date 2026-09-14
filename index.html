@@ -46,7 +46,7 @@
 
       <div class="notice" role="note">
         <span>R-18 制作プロジェクト</span>
-        <p>6分野・180個の内蔵プロンプト部品と自作項目を掛け合わせ、txt2img／img2imgで大量生成できます。</p>
+        <p>成人向け8分野・240個の内蔵プロンプト部品と自作項目を掛け合わせ、txt2img／img2imgで大量生成できます。</p>
       </div>
 
       <section class="screen active" id="project" data-title="生成環境">
@@ -70,8 +70,8 @@
             <div class="panel-title"><h3>参照画像から派生</h3><span class="tag ready">img2img</span></div>
             <div class="form-grid">
               <label class="field wide"><span>参照画像</span><div class="input-action"><input value="reference.png" readonly><button>画像選択</button></div></label>
-              <label class="field"><span>変化量</span><input value="0.55"></label>
-              <label class="field"><span>動作</span><select><option>構図を残して変化</option></select></label>
+              <label class="field"><span>変化量（大きいほど参照から離れる）</span><input value="0.68"></label>
+              <label class="field"><span>おすすめ</span><select><option>バランス 0.68</option><option>形を残す 0.45</option><option>大きく変える 0.82</option></select></label>
             </div>
             <p class="helper">参照画像はローカルComfyUIのinputへ渡し、外部サービスへ送信しません。</p>
           </article>
@@ -86,35 +86,39 @@
 
       <section class="screen" id="scenes" data-title="プロンプトミキサー">
         <div class="section-heading">
-          <div><p class="eyebrow">02 / PROMPT MIXER</p><h2>180項目＋カスタムから生成パターンを作る</h2></div>
-          <span class="tag ready">180項目 + CUSTOM</span>
+          <div><p class="eyebrow">02 / R18 PROMPT MIXER</p><h2>R18特化240項目＋カスタムを掛け合わせる</h2></div>
+          <span class="tag ready">R18 240項目 + CUSTOM</span>
         </div>
 
         <div class="metric-strip">
-          <div><strong>2</strong><span>人物</span></div>
-          <div><strong>3</strong><span>衣装</span></div>
-          <div><strong>2 × 2 × 2 × 2</strong><span>ポーズ・場所・撮影・性癖</span></div>
-          <div><strong id="sceneCount">96</strong><span>生成パターン</span></div>
+          <div><strong>8分野</strong><span>R18に特化</span></div>
+          <div><strong>各30</strong><span>内蔵項目</span></div>
+          <div><strong>240＋自作</strong><span>表示名と生成語句</span></div>
+          <div><strong id="sceneCount">128</strong><span>生成パターン例</span></div>
         </div>
 
         <article class="panel prompt-panel">
-          <p class="prompt-help">分野タブを切り替えて選択します。各分野へ自分専用の表示名と生成プロンプトも追加できます。</p>
+          <p class="prompt-help">架空の20歳以上・同意のある成人表現専用。8分野を切り替え、自作プロンプトも追加できます。</p>
           <div class="prompt-tabs" role="tablist">
-            <button class="prompt-tab active" data-prompt-tab="character">人物（30）</button>
-            <button class="prompt-tab" data-prompt-tab="wardrobe">衣装（30）</button>
-            <button class="prompt-tab" data-prompt-tab="pose">ポーズ（30）</button>
-            <button class="prompt-tab" data-prompt-tab="location">場所（30）</button>
-            <button class="prompt-tab" data-prompt-tab="cinematic">撮影（30）</button>
-            <button class="prompt-tab" data-prompt-tab="adult">性癖・R18（30）</button>
+            <button class="prompt-tab active" data-prompt-tab="character">人物・体型（30）</button>
+            <button class="prompt-tab" data-prompt-tab="wardrobe">衣装・露出（30）</button>
+            <button class="prompt-tab" data-prompt-tab="expression">表情・反応（30）</button>
+            <button class="prompt-tab" data-prompt-tab="pose">R18ポーズ（30）</button>
+            <button class="prompt-tab" data-prompt-tab="location">シチュ（30）</button>
+            <button class="prompt-tab" data-prompt-tab="cinematic">カメラ（30）</button>
+            <button class="prompt-tab" data-prompt-tab="adult">プレイ（30）</button>
+            <button class="prompt-tab" data-prompt-tab="fetish">フェチ・質感（30）</button>
           </div>
-          <div class="prompt-category active" data-prompt-panel="character"><button class="prompt-chip selected"><strong>大人の女性・黒髪</strong><small>adult woman, long black hair</small></button><button class="prompt-chip selected"><strong>大人の女性・銀髪</strong><small>adult woman, long silver hair</small></button><button class="prompt-chip"><strong>大人の女性・眼鏡</strong><small>adult woman, elegant glasses</small></button><button class="prompt-chip"><strong>日焼け肌</strong><small>adult woman, warm tanned skin</small></button></div>
-          <div class="prompt-category" data-prompt-panel="wardrobe"><button class="prompt-chip selected"><strong>イブニングドレス</strong><small>elegant evening dress</small></button><button class="prompt-chip selected"><strong>ランジェリー</strong><small>refined adult lingerie</small></button><button class="prompt-chip"><strong>コルセット</strong><small>ornate corset outfit</small></button><button class="prompt-chip"><strong>シースルードレス</strong><small>sheer layered dress</small></button></div>
-          <div class="prompt-category" data-prompt-panel="pose"><button class="prompt-chip selected"><strong>椅子に座る</strong><small>sitting elegantly on a chair</small></button><button class="prompt-chip selected"><strong>振り返り</strong><small>looking back over shoulder</small></button><button class="prompt-chip"><strong>背中を反らす</strong><small>graceful arched-back pose</small></button></div>
-          <div class="prompt-category" data-prompt-panel="location"><button class="prompt-chip selected"><strong>高級ホテル</strong><small>luxury hotel suite</small></button><button class="prompt-chip selected"><strong>夜景の見える部屋</strong><small>room overlooking city lights</small></button><button class="prompt-chip"><strong>月夜バルコニー</strong><small>moonlit balcony</small></button></div>
-          <div class="prompt-category" data-prompt-panel="cinematic"><button class="prompt-chip selected"><strong>上半身</strong><small>upper-body portrait framing</small></button><button class="prompt-chip selected"><strong>暖色の間接照明</strong><small>warm indirect lighting</small></button><button class="prompt-chip"><strong>リムライト</strong><small>dramatic rim lighting</small></button></div>
-          <div class="prompt-category" data-prompt-panel="adult"><button class="prompt-chip selected"><strong>黒ストッキング</strong><small>adult, black stockings emphasis</small></button><button class="prompt-chip selected"><strong>主導的な雰囲気</strong><small>consensual adult dominant mood</small></button><button class="prompt-chip"><strong>鏡越し</strong><small>adult scene reflected in a mirror</small></button></div>
+          <div class="prompt-category active" data-prompt-panel="character"><button class="prompt-chip selected"><strong>成人女性・20代</strong><small>one fictional adult woman in her twenties</small></button><button class="prompt-chip selected"><strong>グラマラス</strong><small>adult woman, voluptuous curvy body</small></button><button class="prompt-chip"><strong>熟女・40代以上</strong><small>mature adult woman over forty</small></button><button class="prompt-chip"><strong>成人女性同士</strong><small>two adult women, consenting lovers</small></button></div>
+          <div class="prompt-category" data-prompt-panel="wardrobe"><button class="prompt-chip selected"><strong>レースランジェリー</strong><small>revealing lace lingerie</small></button><button class="prompt-chip selected"><strong>シースルーランジェリー</strong><small>transparent sheer lingerie</small></button><button class="prompt-chip"><strong>トップレス</strong><small>adult topless nudity</small></button><button class="prompt-chip"><strong>全裸</strong><small>fully nude fictional adult</small></button></div>
+          <div class="prompt-category" data-prompt-panel="expression"><button class="prompt-chip selected"><strong>熱い視線</strong><small>intense lustful gaze at viewer</small></button><button class="prompt-chip"><strong>恍惚</strong><small>ecstatic adult expression</small></button><button class="prompt-chip"><strong>絶頂寸前</strong><small>adult expression on the edge of climax</small></button></div>
+          <div class="prompt-category" data-prompt-panel="pose"><button class="prompt-chip selected"><strong>脚を開いて座る</strong><small>adult sitting with legs spread</small></button><button class="prompt-chip"><strong>四つん這い</strong><small>adult on all fours, erotic pose</small></button><button class="prompt-chip"><strong>騎乗位構図</strong><small>consenting adult cowgirl position</small></button></div>
+          <div class="prompt-category" data-prompt-panel="location"><button class="prompt-chip selected"><strong>ホテルのベッド</strong><small>explicit adult scene on a hotel bed</small></button><button class="prompt-chip"><strong>ボンデージルーム</strong><small>consensual adult bondage playroom</small></button><button class="prompt-chip"><strong>鏡の前</strong><small>adult scene in front of a mirror</small></button></div>
+          <div class="prompt-category" data-prompt-panel="cinematic"><button class="prompt-chip selected"><strong>全身</strong><small>full body erotic composition</small></button><button class="prompt-chip"><strong>主観視点</strong><small>adult first-person point of view</small></button><button class="prompt-chip"><strong>胸元の接写</strong><small>explicit adult breast close-up</small></button></div>
+          <div class="prompt-category" data-prompt-panel="adult"><button class="prompt-chip selected"><strong>官能ポーズ</strong><small>consensual adult erotic posing</small></button><button class="prompt-chip"><strong>セルフプレジャー</strong><small>consensual adult solo masturbation</small></button><button class="prompt-chip"><strong>成人男女の性交</strong><small>explicit consensual sex between adults</small></button></div>
+          <div class="prompt-category" data-prompt-panel="fetish"><button class="prompt-chip selected"><strong>濡れた肌</strong><small>wet adult skin, glossy highlights</small></button><button class="prompt-chip"><strong>黒ストッキング</strong><small>black thigh-high stockings fetish</small></button><button class="prompt-chip"><strong>体液表現</strong><small>explicit adult bodily-fluid detail</small></button></div>
           <div class="custom-prompt-row"><label>カスタム表示名<input id="customPromptLabel" placeholder="例：自作の衣装" /></label><label>生成プロンプト<input id="customPromptValue" placeholder="例：original costume, detailed fabric" /></label><button class="button primary" id="addCustomPrompt">追加して選択</button><button class="button" id="deleteCustomPrompt">カスタム削除</button></div>
-          <div class="panel-footer"><span>2 × 3 × 2 × 2 × 2 × 2 = 96パターン　各5枚 = 480枚</span><button class="button primary" id="buildMix" data-next="generate">組み合わせを作成</button></div>
+          <div class="panel-footer"><span>2 × 2 × 2 × 2 × 2 × 2 × 2 × 1 = 128パターン　各5枚 = 640枚</span><button class="button primary" id="buildMix" data-next="generate">組み合わせを作成</button></div>
         </article>
       </section>
 
