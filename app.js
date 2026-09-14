@@ -94,14 +94,14 @@ document.querySelectorAll('.select-candidate').forEach((button) => {
   button.addEventListener('click', () => {
     document.querySelectorAll('.candidate').forEach((card) => {
       card.classList.remove('selected');
-      card.querySelector('.select-candidate').textContent = 'この画像を採用';
+      card.querySelector('.select-candidate').textContent = '販売に使用';
     });
     const card = button.closest('.candidate');
     card.classList.remove('held');
-    card.querySelector('.hold-candidate').textContent = '保留';
+    card.querySelector('.hold-candidate').textContent = 'あとで確認';
     card.classList.add('selected');
-    button.textContent = '採用中';
-    showToast('採用候補を切り替えました。');
+    button.textContent = '販売に使用中';
+    showToast('販売に使う画像を切り替えました。');
   });
 });
 
@@ -111,10 +111,10 @@ document.querySelectorAll('.hold-candidate').forEach((button) => {
     const held = card.classList.toggle('held');
     if (held) {
       card.classList.remove('selected');
-      card.querySelector('.select-candidate').textContent = 'この画像を採用';
+      card.querySelector('.select-candidate').textContent = '販売に使用';
     }
-    button.textContent = held ? '保留中' : '保留';
-    showToast(held ? '候補を保留にしました。元画像は移動・削除しません。' : '保留を解除しました。');
+    button.textContent = held ? 'あとで確認中' : 'あとで確認';
+    showToast(held ? 'あとで確認する画像にしました。元画像は移動・削除しません。' : '未判定へ戻しました。');
   });
 });
 
@@ -130,5 +130,5 @@ document.getElementById('validateExport').addEventListener('click', () => {
   const state = document.getElementById('exportState');
   state.textContent = '作成完了';
   state.className = 'tag ready';
-  showToast('モック上で本編・サンプル・分割ZIPを作成した状態にしました。');
+  showToast('モック上で本編ZIP・サンプル画像・商品説明文を作成した状態にしました。');
 });
