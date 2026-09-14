@@ -46,7 +46,7 @@
 
       <div class="notice" role="note">
         <span>R-18 制作プロジェクト</span>
-        <p>性癖・R18演出を含む120個の内蔵プロンプト部品を掛け合わせ、txt2img／img2imgで大量生成できます。</p>
+        <p>6分野・180個の内蔵プロンプト部品と自作項目を掛け合わせ、txt2img／img2imgで大量生成できます。</p>
       </div>
 
       <section class="screen active" id="project" data-title="生成環境">
@@ -86,8 +86,8 @@
 
       <section class="screen" id="scenes" data-title="プロンプトミキサー">
         <div class="section-heading">
-          <div><p class="eyebrow">02 / PROMPT MIXER</p><h2>120項目から生成パターンを掛け合わせる</h2></div>
-          <span class="tag ready">120 PROMPT PARTS</span>
+          <div><p class="eyebrow">02 / PROMPT MIXER</p><h2>180項目＋カスタムから生成パターンを作る</h2></div>
+          <span class="tag ready">180項目 + CUSTOM</span>
         </div>
 
         <div class="metric-strip">
@@ -98,14 +98,22 @@
         </div>
 
         <article class="panel prompt-panel">
-          <div class="prompt-columns">
-            <div><strong>人物（20）</strong><button class="prompt-chip selected">大人の女性・黒髪</button><button class="prompt-chip selected">大人の女性・銀髪</button><button class="prompt-chip">大人の女性・眼鏡</button></div>
-            <div><strong>衣装（20）</strong><button class="prompt-chip selected">イブニングドレス</button><button class="prompt-chip selected">ランジェリー</button><button class="prompt-chip selected">シルクのナイトウェア</button></div>
-            <div><strong>ポーズ（20）</strong><button class="prompt-chip selected">椅子に座る</button><button class="prompt-chip selected">振り返り</button><button class="prompt-chip">窓辺に立つ</button></div>
-            <div><strong>場所（20）</strong><button class="prompt-chip selected">高級ホテル</button><button class="prompt-chip selected">夜景の見える部屋</button><button class="prompt-chip">撮影スタジオ</button></div>
-            <div><strong>撮影（20）</strong><button class="prompt-chip selected">上半身</button><button class="prompt-chip selected">暖色の間接照明</button><button class="prompt-chip">映画的な色調</button></div>
-            <div><strong>性癖・R18（20）</strong><button class="prompt-chip selected">黒ストッキング</button><button class="prompt-chip selected">ロープ拘束</button><button class="prompt-chip">主導的な雰囲気</button></div>
+          <p class="prompt-help">分野タブを切り替えて選択します。各分野へ自分専用の表示名と生成プロンプトも追加できます。</p>
+          <div class="prompt-tabs" role="tablist">
+            <button class="prompt-tab active" data-prompt-tab="character">人物（30）</button>
+            <button class="prompt-tab" data-prompt-tab="wardrobe">衣装（30）</button>
+            <button class="prompt-tab" data-prompt-tab="pose">ポーズ（30）</button>
+            <button class="prompt-tab" data-prompt-tab="location">場所（30）</button>
+            <button class="prompt-tab" data-prompt-tab="cinematic">撮影（30）</button>
+            <button class="prompt-tab" data-prompt-tab="adult">性癖・R18（30）</button>
           </div>
+          <div class="prompt-category active" data-prompt-panel="character"><button class="prompt-chip selected"><strong>大人の女性・黒髪</strong><small>adult woman, long black hair</small></button><button class="prompt-chip selected"><strong>大人の女性・銀髪</strong><small>adult woman, long silver hair</small></button><button class="prompt-chip"><strong>大人の女性・眼鏡</strong><small>adult woman, elegant glasses</small></button><button class="prompt-chip"><strong>日焼け肌</strong><small>adult woman, warm tanned skin</small></button></div>
+          <div class="prompt-category" data-prompt-panel="wardrobe"><button class="prompt-chip selected"><strong>イブニングドレス</strong><small>elegant evening dress</small></button><button class="prompt-chip selected"><strong>ランジェリー</strong><small>refined adult lingerie</small></button><button class="prompt-chip"><strong>コルセット</strong><small>ornate corset outfit</small></button><button class="prompt-chip"><strong>シースルードレス</strong><small>sheer layered dress</small></button></div>
+          <div class="prompt-category" data-prompt-panel="pose"><button class="prompt-chip selected"><strong>椅子に座る</strong><small>sitting elegantly on a chair</small></button><button class="prompt-chip selected"><strong>振り返り</strong><small>looking back over shoulder</small></button><button class="prompt-chip"><strong>背中を反らす</strong><small>graceful arched-back pose</small></button></div>
+          <div class="prompt-category" data-prompt-panel="location"><button class="prompt-chip selected"><strong>高級ホテル</strong><small>luxury hotel suite</small></button><button class="prompt-chip selected"><strong>夜景の見える部屋</strong><small>room overlooking city lights</small></button><button class="prompt-chip"><strong>月夜バルコニー</strong><small>moonlit balcony</small></button></div>
+          <div class="prompt-category" data-prompt-panel="cinematic"><button class="prompt-chip selected"><strong>上半身</strong><small>upper-body portrait framing</small></button><button class="prompt-chip selected"><strong>暖色の間接照明</strong><small>warm indirect lighting</small></button><button class="prompt-chip"><strong>リムライト</strong><small>dramatic rim lighting</small></button></div>
+          <div class="prompt-category" data-prompt-panel="adult"><button class="prompt-chip selected"><strong>黒ストッキング</strong><small>adult, black stockings emphasis</small></button><button class="prompt-chip selected"><strong>主導的な雰囲気</strong><small>consensual adult dominant mood</small></button><button class="prompt-chip"><strong>鏡越し</strong><small>adult scene reflected in a mirror</small></button></div>
+          <div class="custom-prompt-row"><label>カスタム表示名<input id="customPromptLabel" placeholder="例：自作の衣装" /></label><label>生成プロンプト<input id="customPromptValue" placeholder="例：original costume, detailed fabric" /></label><button class="button primary" id="addCustomPrompt">追加して選択</button><button class="button" id="deleteCustomPrompt">カスタム削除</button></div>
           <div class="panel-footer"><span>2 × 3 × 2 × 2 × 2 × 2 = 96パターン　各5枚 = 480枚</span><button class="button primary" id="buildMix" data-next="generate">組み合わせを作成</button></div>
         </article>
       </section>

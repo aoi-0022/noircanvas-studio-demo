@@ -57,6 +57,41 @@ document.querySelectorAll('.prompt-chip').forEach((button) => {
   });
 });
 
+document.querySelectorAll('.prompt-tab').forEach((button) => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.prompt-tab').forEach((tab) => tab.classList.toggle('active', tab === button));
+    document.querySelectorAll('.prompt-category').forEach((panel) => panel.classList.toggle('active', panel.dataset.promptPanel === button.dataset.promptTab));
+  });
+});
+
+document.getElementById('addCustomPrompt')?.addEventListener('click', () => {
+  const label = document.getElementById('customPromptLabel');
+  const prompt = document.getElementById('customPromptValue');
+  if (!label.value.trim() || !prompt.value.trim()) {
+    showToast('表示名と生成プロンプトを両方入力してください。');
+    return;
+  }
+  const panel = document.querySelector('.prompt-category.active');
+  const chip = document.createElement('button');
+  chip.className = 'prompt-chip selected custom';
+  chip.innerHTML = `<strong>${label.value.trim()}</strong><small>${prompt.value.trim()}</small>`;
+  chip.addEventListener('click', () => chip.classList.toggle('selected'));
+  panel.appendChild(chip);
+  label.value = '';
+  prompt.value = '';
+  showToast('この分野へカスタム項目を追加しました。製品版では作品ファイルへ保存されます。');
+});
+
+document.getElementById('deleteCustomPrompt')?.addEventListener('click', () => {
+  const selected = document.querySelector('.prompt-category.active .prompt-chip.custom.selected');
+  if (!selected) {
+    showToast('削除するカスタム項目を選択してください。標準項目は削除されません。');
+    return;
+  }
+  selected.remove();
+  showToast('選択したカスタム項目を削除しました。');
+});
+
 const simulateButton = document.getElementById('simulateGeneration');
 const restButton = document.getElementById('generateRest');
 const generationState = document.getElementById('generationState');
